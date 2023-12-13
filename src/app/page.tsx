@@ -1,95 +1,62 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client'
+import { Copyright } from '@mui/icons-material';
+//1 Import Area
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { Avatar, Box, Button, Checkbox, Container, CssBaseline, FormControlLabel, Grid, Link, TextField, ThemeProvider, Typography, createTheme } from "@mui/material"
 
-export default function Home() {
+
+let x = createTheme()//createTheme function will return something and i will catch in x variable
+//2. Function defination Area
+function Home() {
+
+  //Every function return something
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+    <ThemeProvider theme={x}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box sx={{
+          marginTop:8,
+          display:'flex',
+          flexDirection:'column',
+          alignItems: 'center'
+        }}>
+          <Avatar sx={{bgcolor:'secondary.main', m: 1}}>
+            <LockOutlinedIcon color="primary"/>
+          </Avatar>
+          <Typography component="h1" variant="h4">Sign In</Typography>
+          <Box component="form" sx={{mt:2}}>
+            <TextField autoComplete="email" autoFocus margin="normal" fullWidth id="anil" label="Enter your name" name="firstName" required/>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
             />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+            <FormControlLabel  control={<Checkbox value="remember" color="primary" />} label="Remember me" />
+            <Button  variant="contained" fullWidth type="submit" sx={{ mt:3,mb:2}}>sign in</Button>
+            <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid> 
+              <Grid item>
+                <Link href="#" variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid> 
+            </Grid>
+          </Box>
+          <Typography align="center">Copyright <Copyright /> Your website 2023</Typography>
+        </Box> 
+      </Container>
+    </ThemeProvider>
   )
 }
+
+//3. Export 
+export default Home

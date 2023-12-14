@@ -11,7 +11,12 @@ export const metadata:Metadata  = {
 
 //const themeObject = createTheme()
 
-export default function page() {
+//I am creating a functional Compoent
+function Anil(){
+  //return <h1>Copyright © Your Website 2023.</h1>
+  return <Typography variant="h6">Copyright © Your Website 2023.</Typography>
+}
+export default function YourComponent() {
   return (
     <ThemeProvider2>
         <AppBar>
@@ -226,6 +231,13 @@ export default function page() {
             </Grid>
           </Grid>
         </Container>
+        <Box sx={{ bgcolor:'white' }} component="footer" className="a_tbdr">
+          <Typography variant="h6" align="center" gutterBottom>Footer</Typography>
+          <Typography align="center" color="text.primary" variant="subtitle2">
+            Something here to give the footer a purpose!
+            <Anil />
+          </Typography>
+        </Box>
     </ThemeProvider2>
   )
 }

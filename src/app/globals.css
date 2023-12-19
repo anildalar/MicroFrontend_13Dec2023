@@ -8,3 +8,9 @@ body {
 .a_purple{
   color:"red";
 }
+.a_fi{
+  border:1px dashed blue;
+}
+.a_fip{
+  height: 200px !important;
+}
